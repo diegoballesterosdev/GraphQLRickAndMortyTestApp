@@ -12,7 +12,6 @@
 		9082F7902C87880F00D1B7A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F78F2C87880F00D1B7A5 /* ContentView.swift */; };
 		9082F7922C87881000D1B7A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9082F7912C87881000D1B7A5 /* Assets.xcassets */; };
 		9082F7952C87881000D1B7A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9082F7942C87881000D1B7A5 /* Preview Assets.xcassets */; };
-		9082F79F2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F79E2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.swift */; };
 		9082F7A92C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F7A82C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITests.swift */; };
 		9082F7AB2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F7AA2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITestsLaunchTests.swift */; };
 		9082F7B92C87885700D1B7A5 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 9082F7B82C87885700D1B7A5 /* Apollo */; };
@@ -51,7 +50,6 @@
 		9082F7912C87881000D1B7A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9082F7942C87881000D1B7A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9082F79A2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphQLRickAndMortyTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9082F79E2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRickAndMortyTestAppTests.swift; sourceTree = "<group>"; };
 		9082F7A42C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphQLRickAndMortyTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9082F7A82C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRickAndMortyTestAppUITests.swift; sourceTree = "<group>"; };
 		9082F7AA2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRickAndMortyTestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 		9082F79D2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				9082F79E2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.swift */,
 				900164002C87BF360064C94B /* CharacterFetchTest.swift */,
 			);
 			path = GraphQLRickAndMortyTestAppTests;
@@ -336,7 +333,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				900164012C87BF360064C94B /* CharacterFetchTest.swift in Sources */,
-				9082F79F2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
