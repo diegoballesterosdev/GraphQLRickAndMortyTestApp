@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,12 @@
 		9082F79F2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F79E2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.swift */; };
 		9082F7A92C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F7A82C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITests.swift */; };
 		9082F7AB2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F7AA2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITestsLaunchTests.swift */; };
+		9082F7B92C87885700D1B7A5 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 9082F7B82C87885700D1B7A5 /* Apollo */; };
+		9082F7BC2C8788AB00D1B7A5 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 9082F7BB2C8788AB00D1B7A5 /* schema.json */; };
+		9082F7BE2C8788D600D1B7A5 /* Queries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 9082F7BD2C8788D600D1B7A5 /* Queries.graphql */; };
+		9082F7C02C878B4200D1B7A5 /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 9082F7BF2C878B4200D1B7A5 /* schema.graphqls */; };
+		9082F7C32C878CA400D1B7A5 /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F7C22C878CA400D1B7A5 /* Apollo.swift */; };
+		9082F7C72C878F6A00D1B7A5 /* MySchemaAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 9082F7C62C878F6A00D1B7A5 /* MySchemaAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,11 @@
 		9082F7A42C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphQLRickAndMortyTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9082F7A82C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRickAndMortyTestAppUITests.swift; sourceTree = "<group>"; };
 		9082F7AA2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRickAndMortyTestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9082F7BB2C8788AB00D1B7A5 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		9082F7BD2C8788D600D1B7A5 /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
+		9082F7BF2C878B4200D1B7A5 /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
+		9082F7C22C878CA400D1B7A5 /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
+		9082F7C42C878D9800D1B7A5 /* MySchemaAPI */ = {isa = PBXFileReference; lastKnownFileType = text; path = MySchemaAPI; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9082F7C72C878F6A00D1B7A5 /* MySchemaAPI in Frameworks */,
+				9082F7B92C87885700D1B7A5 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +107,10 @@
 		9082F78C2C87880F00D1B7A5 /* GraphQLRickAndMortyTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				9082F7C42C878D9800D1B7A5 /* MySchemaAPI */,
 				9082F78D2C87880F00D1B7A5 /* GraphQLRickAndMortyTestAppApp.swift */,
 				9082F78F2C87880F00D1B7A5 /* ContentView.swift */,
+				9082F7BA2C87889900D1B7A5 /* GraphQL */,
 				9082F7912C87881000D1B7A5 /* Assets.xcassets */,
 				9082F7932C87881000D1B7A5 /* Preview Content */,
 			);
@@ -127,6 +142,17 @@
 			path = GraphQLRickAndMortyTestAppUITests;
 			sourceTree = "<group>";
 		};
+		9082F7BA2C87889900D1B7A5 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				9082F7C22C878CA400D1B7A5 /* Apollo.swift */,
+				9082F7BB2C8788AB00D1B7A5 /* schema.json */,
+				9082F7BF2C878B4200D1B7A5 /* schema.graphqls */,
+				9082F7BD2C8788D600D1B7A5 /* Queries.graphql */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +169,10 @@
 			dependencies = (
 			);
 			name = GraphQLRickAndMortyTestApp;
+			packageProductDependencies = (
+				9082F7B82C87885700D1B7A5 /* Apollo */,
+				9082F7C62C878F6A00D1B7A5 /* MySchemaAPI */,
+			);
 			productName = GraphQLRickAndMortyTestApp;
 			productReference = 9082F78A2C87880F00D1B7A5 /* GraphQLRickAndMortyTestApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +245,10 @@
 				Base,
 			);
 			mainGroup = 9082F7812C87880F00D1B7A5;
+			packageReferences = (
+				9082F7B72C87885700D1B7A5 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				9082F7C52C878F6A00D1B7A5 /* XCLocalSwiftPackageReference "MySchemaAPI" */,
+			);
 			productRefGroup = 9082F78B2C87880F00D1B7A5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,7 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9082F7952C87881000D1B7A5 /* Preview Assets.xcassets in Resources */,
+				9082F7BC2C8788AB00D1B7A5 /* schema.json in Resources */,
 				9082F7922C87881000D1B7A5 /* Assets.xcassets in Resources */,
+				9082F7C02C878B4200D1B7A5 /* schema.graphqls in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +294,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9082F7902C87880F00D1B7A5 /* ContentView.swift in Sources */,
+				9082F7BE2C8788D600D1B7A5 /* Queries.graphql in Sources */,
+				9082F7C32C878CA400D1B7A5 /* Apollo.swift in Sources */,
 				9082F78E2C87880F00D1B7A5 /* GraphQLRickAndMortyTestAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +626,36 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		9082F7C52C878F6A00D1B7A5 /* XCLocalSwiftPackageReference "MySchemaAPI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MySchemaAPI;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9082F7B72C87885700D1B7A5 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.15.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9082F7B82C87885700D1B7A5 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9082F7B72C87885700D1B7A5 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		9082F7C62C878F6A00D1B7A5 /* MySchemaAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MySchemaAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9082F7822C87880F00D1B7A5 /* Project object */;
 }
