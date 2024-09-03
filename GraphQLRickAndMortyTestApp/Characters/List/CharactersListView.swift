@@ -14,16 +14,30 @@ struct CharactersListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(data.characters! /*?? data.placeholders*/, id: \.id) { character in
-//                    NavigationLink(
-//                        destination: CharacterDetailView(id: character.id!),
-//                        label: {
-//                            CharactersListRowView(character: character)
-//                        })
+                if let characters = data.characters {
+                    ForEach(characters, id: \.id) { character in
+                        
+                        Text(character.name ?? "")
+//                        NavigationLink(
+//                            destination: CharacterDetailView(id: character.id!),
+//                            label: {
+//                                CharactersListRowView(character: character)
+//                            })
+                    }
+                    if data.shouldDisplayNextPage {
+                        nextPageView
+                    }
                 }
-                if data.shouldDisplayNextPage {
-                    nextPageView
-                }
+//                ForEach(data.characters ?? Charactesm, id: \.id) { character in
+////                    NavigationLink(
+////                        destination: CharacterDetailView(id: character.id!),
+////                        label: {
+////                            CharactersListRowView(character: character)
+////                        })
+//                }
+//                if data.shouldDisplayNextPage {
+//                    nextPageView
+//                }
             }
             .navigationTitle("Characters")
             .onAppear {

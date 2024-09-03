@@ -7,16 +7,21 @@
 
 import Foundation
 import SwiftUI
-//import Apollo
-//import ApolloAPI
+import Apollo
+import ApolloAPI
 import MySchemaAPI
+
+struct CharacterSmallPlaceholder {
+    var id: String?
+    var name: String?
+    var image: String?
+    var episode: String?
+}
 
 class CharacterListViewModel: ObservableObject {
     @Published public var characters: [CharacterSmall]?
-    public var placeholders = Array(repeating: CharacterSmall(id: GraphQLID(0),
-                                                              name: nil,
-                                                              image: nil,
-                                                              episode: nil), count: 10)
+//    public var placeholders = Array(repeating: CharacterSmallPlaceholder(id: "0", name: "Placeholder Name", image: nil, episode: nil), count: 10)
+//    public var placeholders = Array(repeating: CharacterSmall(), count: 10)
     
     public var currentPage = 1 {
         didSet {
