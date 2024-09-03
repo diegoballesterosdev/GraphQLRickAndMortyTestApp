@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900164012C87BF360064C94B /* CharacterFetchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900164002C87BF360064C94B /* CharacterFetchTest.swift */; };
 		9082F78E2C87880F00D1B7A5 /* GraphQLRickAndMortyTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F78D2C87880F00D1B7A5 /* GraphQLRickAndMortyTestAppApp.swift */; };
 		9082F7902C87880F00D1B7A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082F78F2C87880F00D1B7A5 /* ContentView.swift */; };
 		9082F7922C87881000D1B7A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9082F7912C87881000D1B7A5 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		900164002C87BF360064C94B /* CharacterFetchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFetchTest.swift; sourceTree = "<group>"; };
 		9082F78A2C87880F00D1B7A5 /* GraphQLRickAndMortyTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLRickAndMortyTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9082F78D2C87880F00D1B7A5 /* GraphQLRickAndMortyTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRickAndMortyTestAppApp.swift; sourceTree = "<group>"; };
 		9082F78F2C87880F00D1B7A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				9082F79E2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.swift */,
+				900164002C87BF360064C94B /* CharacterFetchTest.swift */,
 			);
 			path = GraphQLRickAndMortyTestAppTests;
 			sourceTree = "<group>";
@@ -153,10 +156,10 @@
 			isa = PBXGroup;
 			children = (
 				9082F7C22C878CA400D1B7A5 /* Apollo.swift */,
+				9082F7D62C879E4A00D1B7A5 /* SingleQuery.swift */,
 				9082F7BB2C8788AB00D1B7A5 /* schema.json */,
 				9082F7BF2C878B4200D1B7A5 /* schema.graphqls */,
 				9082F7BD2C8788D600D1B7A5 /* Queries.graphql */,
-				9082F7D62C879E4A00D1B7A5 /* SingleQuery.swift */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900164012C87BF360064C94B /* CharacterFetchTest.swift in Sources */,
 				9082F79F2C87881000D1B7A5 /* GraphQLRickAndMortyTestAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,13 +11,6 @@ import Apollo
 import ApolloAPI
 import MySchemaAPI
 
-struct CharacterSmallPlaceholder {
-    var id: String?
-    var name: String?
-    var image: String?
-    var episode: String?
-}
-
 class CharacterListViewModel: ObservableObject {
     @Published public var characters: [CharacterSmall]?
     @Published public var error: Error?
