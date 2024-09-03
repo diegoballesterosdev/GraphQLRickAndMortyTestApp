@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         Text(name)
             .onAppear {
-                Network.shared.apollo.fetch(query: CharacterQuery(page: 10)) { result in
+                Network.shared.apollo.fetch(query: GetCharactersQuery(page: 10)) { result in
                     
                     switch result {
                     case .success(let graphQLResult):
