@@ -10,38 +10,41 @@ import SwiftUI
 
 struct CharactersListView: View {
     @StateObject private var data = CharacterListViewModel()
+    @State private var showingAlert = false
+    @State private var errorMessage = ""
     
     var body: some View {
         NavigationView {
             List {
                 if let characters = data.characters {
                     ForEach(characters, id: \.id) { character in
-                        
                         Text(character.name ?? "")
-//                        NavigationLink(
-//                            destination: CharacterDetailView(id: character.id!),
-//                            label: {
-//                                CharactersListRowView(character: character)
-//                            })
                     }
+                    
                     if data.shouldDisplayNextPage {
                         nextPageView
                     }
                 }
-//                ForEach(data.characters ?? Charactesm, id: \.id) { character in
-////                    NavigationLink(
-////                        destination: CharacterDetailView(id: character.id!),
-////                        label: {
-////                            CharactersListRowView(character: character)
-////                        })
-//                }
-//                if data.shouldDisplayNextPage {
-//                    nextPageView
-//                }
             }
             .navigationTitle("Characters")
-            .onAppear {
+        }
+        .alert("Something happened", isPresented: $showingAlert, actions: {
+            Button("OK", role: .cancel) { }
+            Button("Try again") {
+                data.error = .none
                 data.fetchCharacters()
+            }
+        }, message: {
+            Text(data.error?.localizedDescription ?? "Unknown error")
+        })
+        
+        .onAppear {
+            data.fetchCharacters()
+        }
+        .onChange(of: data.error?.localizedDescription) { oldValue, newValue in
+            if let error = data.error {
+                errorMessage = error.localizedDescription
+                showingAlert = true
             }
         }
     }

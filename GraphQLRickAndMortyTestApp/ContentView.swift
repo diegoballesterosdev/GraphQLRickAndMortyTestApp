@@ -15,28 +15,9 @@ struct ContentView: View {
     var body: some View {
         
         CharactersListView()
-//        Text(name)
-//            .onAppear {
-//                Network.shared.apollo.fetch(query: GetCharactersQuery(page: 10)) { result in
-//                    
-//                    switch result {
-//                    case .success(let graphQLResult):
-//                        DispatchQueue.main.async {
-//                            if let text = graphQLResult.data?.characters?.results?[0]?.name {
-//                                self.name = text
-//                            }
-//                        }
-//                        
-//                        
-//                    case .failure(let error):
-//                        print("ERROR: \(error)")
-//                    }
-//                    
-//                }
-//                    
-//                }
-            }
+        
     }
+}
 
 
 #Preview {

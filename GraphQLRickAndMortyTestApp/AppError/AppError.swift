@@ -8,7 +8,7 @@
 import Foundation
 
 //Types of errors that can be handled
-enum AppError: Error {
+public enum AppError: Error {
     case serviceError(error: Error)
     case invalidURL
     case missingData

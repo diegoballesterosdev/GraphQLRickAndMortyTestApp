@@ -20,8 +20,8 @@ struct CharacterSmallPlaceholder {
 
 class CharacterListViewModel: ObservableObject {
     @Published public var characters: [CharacterSmall]?
-//    public var placeholders = Array(repeating: CharacterSmallPlaceholder(id: "0", name: "Placeholder Name", image: nil, episode: nil), count: 10)
-//    public var placeholders = Array(repeating: CharacterSmall(), count: 10)
+    @Published public var error: Error?
+    
     
     public var currentPage = 1 {
         didSet {
@@ -40,7 +40,7 @@ class CharacterListViewModel: ObservableObject {
     
     public private(set) var totalPage: Int?
     public private(set) var totalCharacters: Int?
-
+    
     func fetchCharacters() {
         let fetchedPage = currentPage
         Network.shared.apollo.fetch(query: GetCharactersQuery(page: GraphQLNullable<Int>(integerLiteral: currentPage))) { [weak self] result in
@@ -55,10 +55,12 @@ class CharacterListViewModel: ObservableObject {
                 }
                 self?.totalPage = result.data?.characters?.info?.pages
                 self?.totalCharacters = result.data?.characters?.info?.count
-        
+                
             case .failure(let error):
-                print("GraphQL query error: \(error)")
+                self?.error = error
+                print("GraphQL query error: \(String(describing: self?.error?.localizedDescription))")
             }
         }
     }
+    
 }
