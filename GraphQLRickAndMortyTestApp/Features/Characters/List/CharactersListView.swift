@@ -10,24 +10,19 @@ import FluidGradient
 import Shimmer
 import MySchemaAPI
 
-
+/// A view that displays a list of characters, with support for pagination and error handling.
 struct CharactersListView: View {
-    @StateObject private var data = CharactersListViewModel()
-    @State private var characters: [CharacterFull]?
-    @State private var showingAlert = false
-    @State private var errorMessage = ""
-    @State private var blobs: [Color] = [.green, .green, .purple]
-    @State private var highlights: [Color] = [.green, .blue, .green]
+    @StateObject private var data = CharactersListViewModel() /// The view model responsible for fetching and managing character data.
+    @State private var showingAlert = false /// A state variable to control the visibility of an alert when an error occurs.
+    @State private var errorMessage = "" /// A state variable that holds the error message to be displayed in the alert.
+    @State private var blobs: [Color] = [.green, .green, .purple] /// Colors used in the FluidGradient background for the animated blobs.
+    @State private var highlights: [Color] = [.green, .blue, .green] /// Colors used in the FluidGradient background for the highlights.
     @State private var screenSize = UIScreen.main.bounds.size /// The size of the screen, used to determine layout dimensions.
-    @State private var showCharacters = false
-    
-    private let adaptiveColumn = [
-        GridItem(.adaptive(minimum: 150))
-    ]
     
     var body: some View {
         NavigationView {
             ZStack {
+                /// Background using a fluid gradient with animated blobs and highlights.
                 FluidGradient(blobs: blobs,
                               highlights: highlights,
                               speed: 0.2,
@@ -35,16 +30,20 @@ struct CharactersListView: View {
                 .background(.quaternary)
                 .ignoresSafeArea()
                 
+                
                 ScrollView {
                     LazyVStack {
+                        /// Display characters if available, otherwise show shimmering placeholders.
                         if let characters = data.characters {
-
+                            
                             ForEach(characters, id: \.self) { character in
                                 ZStack {
+                                    /// A rounded rectangle background with slight opacity.
                                     RoundedRectangle(cornerRadius: 20)
                                         .fill(.black.opacity(0.2))
                                         .padding(2)
                                     
+                                    /// Navigation link to character detail view.
                                     NavigationLink {
                                         CharacterInfoItemView(character: character)
                                     } label: {
@@ -57,12 +56,13 @@ struct CharactersListView: View {
                                 }
                                 .transition(.scale)
                             }
-                            
+                            /// Display a loading view when the next page should be loaded.
                             if data.shouldDisplayNextPage {
                                 nextPageView
                             }
                             
                         } else {
+                            /// Shimmering placeholders for loading state.
                             RoundedRectangle(cornerRadius: 20)
                                 .frame(height: screenSize.width / 2.5)
                                 .shimmering()
@@ -98,10 +98,12 @@ struct CharactersListView: View {
                 }
                 .toolbarBackground(.gray.opacity(0.1))
                 
+                
             }
             .navigationBarTitleDisplayMode(.inline)
             
         }
+        
         .alert("Something happened", isPresented: $showingAlert, actions: {
             Button("OK", role: .cancel) { }
             Button("Try again") {
@@ -127,11 +129,11 @@ struct CharactersListView: View {
         
     }
     
+    /// A view that displays a loading indicator when the next page of characters is being fetched.
     private var nextPageView: some View {
         HStack {
             Spacer()
             VStack {
-                //                ProgressView()
                 RoundedRectangle(cornerRadius: 20)
                     .frame(height: screenSize.width / 2.5)
                     .shimmering()
@@ -148,5 +150,6 @@ struct CharactersListView: View {
 struct CharactersGridView_Previews: PreviewProvider {
     static var previews: some View {
         CharactersListView()
+        
     }
 }

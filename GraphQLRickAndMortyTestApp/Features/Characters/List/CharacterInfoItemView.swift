@@ -10,15 +10,17 @@ import FluidGradient
 import MySchemaAPI
 import Kingfisher
 
+/// A view that displays detailed information about a specific character from the Rick and Morty series.
 struct CharacterInfoItemView: View {
     @State private var screenSize = UIScreen.main.bounds.size /// The size of the screen, used to determine layout dimensions.
-    @State private var blobs: [Color] = [.green, .green, .purple]
-    @State private var highlights: [Color] = [.green, .blue, .green]
+    @State private var blobs: [Color] = [.green, .green, .purple] /// Colors used in the FluidGradient background for the animated blobs.
+    @State private var highlights: [Color] = [.green, .blue, .green] /// Colors used in the FluidGradient background for the highlights.
     
-    let character: CharacterFull /// The character data to be displayed.
+    let character: CharacterFull /// The character data to be displayed, provided from the parent view.
     
     var body: some View {
         ZStack {
+            /// Background using a fluid gradient with animated blobs and highlights.
             FluidGradient(blobs: blobs,
                           highlights: highlights,
                           speed: 0.2,
@@ -28,8 +30,9 @@ struct CharacterInfoItemView: View {
             VStack {
                 
                 ZStack {
+                    /// Display the character's image or a placeholder if the image is unavailable.
                     ZStack {
-                      RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: 20)
                         
                         ZStack {
                             
@@ -44,10 +47,10 @@ struct CharacterInfoItemView: View {
                                     .resizable()
                                     .scaledToFill()
                             }
-
                             
                             VStack {
                                 Spacer()
+                                /// Gradient overlay at the bottom of the image for better text readability.
                                 LinearGradient(gradient: Gradient(colors: [.white.opacity(0.0), .black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
                                     .frame(height: screenSize.height / 7)
                             }
@@ -60,6 +63,7 @@ struct CharacterInfoItemView: View {
                     VStack {
                         Spacer()
                         HStack {
+                            /// Display the character's name with a large, monospaced font.
                             Text(character.name ?? "N/A")
                                 .foregroundStyle(.white)
                                 .fontWeight(.heavy)
@@ -79,38 +83,39 @@ struct CharacterInfoItemView: View {
                 .frame(width: screenSize.width ,height: screenSize.height / 2)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 
-                
+                /// A list displaying various details about the character, divided into sections.
                 List {
+                    /// Section displaying general information about the character.
                     Section {
                         HStack {
-                        Text("Status:")
+                            Text("Status:")
                                 .fontWeight(.bold)
-                        Spacer()
+                            Spacer()
                             Text(character.status ?? "N/A")
                         }
                         .fontDesign(.monospaced)
                         
                         HStack {
-                        Text("Gender:")
+                            Text("Gender:")
                                 .fontWeight(.bold)
-                        Spacer()
-                        Text(character.gender ?? "N/A")
+                            Spacer()
+                            Text(character.gender ?? "N/A")
                         }
                         .fontDesign(.monospaced)
                         
                         HStack {
-                        Text("Species:")
+                            Text("Species:")
                                 .fontWeight(.bold)
-                        Spacer()
-                        Text(character.species ?? "N/A")
+                            Spacer()
+                            Text(character.species ?? "N/A")
                         }
                         .fontDesign(.monospaced)
                         
                         HStack {
-                        Text("Origin:")
+                            Text("Origin:")
                                 .fontWeight(.bold)
                                 .padding(.trailing, 50)
-                        Spacer()
+                            Spacer()
                             Text(character.origin?.name ?? "N/A")
                                 .lineLimit(2)
                                 .minimumScaleFactor(0.5)
@@ -119,10 +124,10 @@ struct CharacterInfoItemView: View {
                         .fontDesign(.monospaced)
                         
                         HStack {
-                        Text("Location:")
+                            Text("Location:")
                                 .fontWeight(.bold)
                                 .padding(.trailing, 50)
-                        Spacer()
+                            Spacer()
                             Text(character.location?.name ?? "N/A")
                                 .lineLimit(2)
                                 .minimumScaleFactor(0.5)
@@ -136,7 +141,7 @@ struct CharacterInfoItemView: View {
                             .font(.headline)
                             .fontDesign(.monospaced)
                     }
-                    
+                    /// Section displaying the episodes in which the character appeared.
                     Section {
                         
                         ForEach(character.episode, id: \.self) { episode in
@@ -147,7 +152,7 @@ struct CharacterInfoItemView: View {
                                     .minimumScaleFactor(0.5)
                                     .multilineTextAlignment(.leading)
                                     .padding(.trailing, 50)
-                            Spacer()
+                                Spacer()
                                 Text(episode!.name ?? "N/A")
                                     .lineLimit(2)
                                     .minimumScaleFactor(0.5)
@@ -155,7 +160,6 @@ struct CharacterInfoItemView: View {
                                 
                             }
                             .fontDesign(.monospaced)
-                            
                         }
                         
                     } header: {
@@ -163,18 +167,11 @@ struct CharacterInfoItemView: View {
                             .font(.headline)
                             .fontDesign(.monospaced)
                     }
-                    
-                    
                 }
                 .scrollContentBackground(.hidden)
                 .background(.white.opacity(0.4))
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .ignoresSafeArea()
-               
-                
-                
-                
-                
             }
         }
         .frame(width: screenSize.width, height: screenSize.height)
@@ -182,6 +179,3 @@ struct CharacterInfoItemView: View {
     }
 }
 
-//#Preview {
-//    CharacterInfoItemView()
-//}

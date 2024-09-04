@@ -15,7 +15,6 @@ struct ChatactersListItemView: View {
     
     let character: CharacterFull /// The character data to be displayed.
     
-    
     @State private var screenSize = UIScreen.main.bounds.size /// The size of the screen, used to determine layout dimensions.
     @State private var animation = false /// A state variable that controls the animation of the status symbol.
     @State private var statusColor = Color(.green) /// The color representing the character's status (e.g., Alive, Dead, Unknown).
@@ -173,18 +172,5 @@ struct ChatactersListItemView: View {
     
 }
 
-extension View {
-    /// Applies the given transform if the given condition evaluates to `true`.
-    /// - Parameters:
-    ///   - condition: The condition to evaluate.
-    ///   - transform: The transform to apply to the source `View`.
-    /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
-    @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
-        if condition {
-            transform(self)
-        } else {
-            self
-        }
-    }
-}
+
 

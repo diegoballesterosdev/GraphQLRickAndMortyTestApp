@@ -10,10 +10,7 @@ import MySchemaAPI
 
 struct ContentView: View {
     
-    @State private var name = ""
-    
     var body: some View {
-        
         CharactersListView()
         
     }
@@ -22,4 +19,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+    
 }
