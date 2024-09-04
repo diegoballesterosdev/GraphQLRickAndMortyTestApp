@@ -4,7 +4,7 @@ query GetCharacters($page: Int) {
             pages, count
         }
         results {
-            ...CharacterSmall
+            ...CharacterFull
         }
     }
 }

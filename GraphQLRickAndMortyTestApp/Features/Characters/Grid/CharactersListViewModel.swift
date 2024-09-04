@@ -11,8 +11,8 @@ import Apollo
 import ApolloAPI
 import MySchemaAPI
 
-class CharacterListViewModel: ObservableObject {
-    @Published public var characters: [CharacterSmall]?
+class CharactersListViewModel: ObservableObject {
+    @Published public var characters: [CharacterFull]?
     @Published public var error: Error?
     
     
@@ -35,16 +35,17 @@ class CharacterListViewModel: ObservableObject {
     public private(set) var totalCharacters: Int?
     
     func fetchCharacters() {
+
         let fetchedPage = currentPage
         Network.shared.apollo.fetch(query: GetCharactersQuery(page: GraphQLNullable<Int>(integerLiteral: currentPage))) { [weak self] result in
             switch result {
             case .success(let result):
                 if fetchedPage > 1 {
-                    if let newCharacters = result.data?.characters?.results?.compactMap({ $0?.fragments.characterSmall }) {
-                        self?.characters?.append(contentsOf: newCharacters)
+                    if let newCharacters = result.data?.characters?.results?.compactMap({ $0?.fragments.characterFull }) {
+                            self?.characters?.append(contentsOf: newCharacters)
                     }
                 } else {
-                    self?.characters = result.data?.characters?.results?.compactMap{ $0?.fragments.characterSmall }
+                    self?.characters = result.data?.characters?.results?.compactMap{ $0?.fragments.characterFull }
                 }
                 self?.totalPage = result.data?.characters?.info?.pages
                 self?.totalCharacters = result.data?.characters?.info?.count

@@ -7,8 +7,8 @@ public class GetCharactersQuery: GraphQLQuery {
   public static let operationName: String = "GetCharacters"
   public static let operationDocument: ApolloAPI.OperationDocument = .init(
     definition: .init(
-      #"query GetCharacters($page: Int) { characters(page: $page) { __typename info { __typename pages count } results { __typename ...CharacterSmall } } }"#,
-      fragments: [CharacterSmall.self]
+      #"query GetCharacters($page: Int) { characters(page: $page) { __typename info { __typename pages count } results { __typename ...CharacterFull } } }"#,
+      fragments: [CharacterFull.self]
     ))
 
   public var page: GraphQLNullable<Int>
@@ -78,7 +78,7 @@ public class GetCharactersQuery: GraphQLQuery {
         public static var __parentType: any ApolloAPI.ParentType { MySchemaAPI.Objects.Character }
         public static var __selections: [ApolloAPI.Selection] { [
           .field("__typename", String.self),
-          .fragment(CharacterSmall.self),
+          .fragment(CharacterFull.self),
         ] }
 
         /// The id of the character.
@@ -88,17 +88,33 @@ public class GetCharactersQuery: GraphQLQuery {
         /// Link to the character's image.
         /// All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
         public var image: String? { __data["image"] }
+        /// The status of the character ('Alive', 'Dead' or 'unknown').
+        public var status: String? { __data["status"] }
+        /// The species of the character.
+        public var species: String? { __data["species"] }
+        /// The type or subspecies of the character.
+        public var type: String? { __data["type"] }
+        /// The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
+        public var gender: String? { __data["gender"] }
         /// Episodes in which this character appeared.
         public var episode: [Episode?] { __data["episode"] }
+        /// The character's last known location
+        public var location: Location? { __data["location"] }
+        /// The character's origin location
+        public var origin: Origin? { __data["origin"] }
 
         public struct Fragments: FragmentContainer {
           public let __data: DataDict
           public init(_dataDict: DataDict) { __data = _dataDict }
 
-          public var characterSmall: CharacterSmall { _toFragment() }
+          public var characterFull: CharacterFull { _toFragment() }
         }
 
-        public typealias Episode = CharacterSmall.Episode
+        public typealias Episode = CharacterFull.Episode
+
+        public typealias Location = CharacterFull.Location
+
+        public typealias Origin = CharacterFull.Origin
       }
     }
   }
